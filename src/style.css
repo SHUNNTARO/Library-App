@@ -1,0 +1,112 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Banner */
+.header-banner {
+    background-color: #5f6971;
+    color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.header-banner h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Step Titles */
+.step-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-select {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    padding: 8px 12px;
+    width: 100%;
+    background-color: white;
+}
+
+/* Add PC Button */
+.add-pc-btn {
+    background-color: #a79af9;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.add-pc-btn:hover {
+    background-color: #8a7ae0;
+}
+
+/* Note Text */
+.note-text {
+    color: #ff0000;
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+/* Results Area */
+.results-area {
+    margin-top: 30px;
+}
+
+.pc-specs-card {
+    background-color: #00c2ba;
+    color: #000;
+    border-radius: 4px;
+    padding: 20px;
+    min-height: 300px;
+    position: relative;
+}
+
+.pc-specs-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Performance Metrics */
+.performance-metrics {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.metric {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .performance-metrics {
+        position: static;
+        margin-top: 20px;
+        justify-content: flex-end;
+    }
+}
