@@ -11,7 +11,6 @@ const congfig={
     storageSizeId:"storageSize",
     storageBrandId:"storageBrand",
     storageModelId:"storageModel"
-
 }
 
 async function fetchData(type){
@@ -36,6 +35,8 @@ async function fetchDataEndPopulation(type,brandId,modelId,storageId=null,hardwa
     initiallizeDropdown(modelSelect,"Select model");
     if(storageSelect) initiallizeDropdown(storageSelect,"Select Storage");
     if(hardwareSelect) initiallizeDropdown(hardwareSelect,"Select HDD or SSD");
+
+    populateBrandDropdown(brandSelect, data);
 }
 
 
@@ -43,13 +44,30 @@ function initiallizeDropdown(select, defaultText){
     select.innerHTML =  <option selected disabled>${defaultText}</option>
 }
 
-function logHardwareComponentsCall(hardware, configId){
-    fetch(congfig.url+hardware).then(response=>response.json()).then(data =>{
-        let parent = document.getElementById(configId);
-        let jsonData = JSON.stringify(data);
-        let cpuBrandStringHtml = `
-        <option>${data.model}</option>
-        `
-    })
+function populateBrandDropdown(brandSelect, data){
+    let brands = [...new Set(data.map(item=>item.Brand))];
+    brands.forEach(brand => {
+        let option = document.createElement("option");
+        option.value = brand;
+        option.textContent = brand;
+        brandSelect.appendChild(option);
+    });
 }
+
+// ブランドを選択したらモデルを絞り込む関数
+function handleBrandSelection(brandSelect, modelSelect, data){
+    brandSelect.addEventListener("change", () => {
+        let selectedBrand = brandSelect.value;
+        let models = data.filter(item => item.brand == selectedBrand);
+        initiallizeDropdown(modelSelect, "Select Model");
+        models.forEach(item =>{
+            let option = document.createElement("option");
+            option.value = item.Model;
+            option.textContent = item.Model;
+            modelSelect.appendChild(option);
+        });
+
+    });
+}
+
 
